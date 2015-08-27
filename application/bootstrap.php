@@ -43,13 +43,13 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract{
     public function _initFramework( Yaf\Dispatcher $dispatcher ){
 
         // 应用目录
-        define( 'APPLICATION_PATH' , APP_PATH . '/application/' );
+        define( 'APPLICATION_PATH' , APP_PATH . 'application/' );
         // 公共目录
-        define( 'COMMON_PATH' , APPLICATION_PATH . '/common/' );
+        define( 'COMMON_PATH' , APPLICATION_PATH . 'common/' );
         // Log目录
-        define( 'Log_PATH' , APP_PATH . '/log/' );
+        define( 'Log_PATH' , APP_PATH . 'log/' );
         // Library目录
-        define( 'LIB_PATH' , APPLICATION_PATH . '/library/' );
+        define( 'LIB_PATH' , APPLICATION_PATH . 'library/' );
 
         \Yaf\Loader::import( COMMON_PATH . 'function.php' );
 

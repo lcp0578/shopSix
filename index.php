@@ -15,14 +15,6 @@ define( 'DEBUG' , true );
 
 define( 'APP_PATH' , realpath( __DIR__ ) . '/' );
 
-if( DEBUG ){
-    ini_set( 'display_errors' , true );
-    error_reporting( E_ALL );
-}else{
-    ini_set( 'display_errors' , false );
-    error_reporting( 0 );
-}
-
 $app = new Yaf\Application( APP_PATH . 'conf/application.ini' );
 
 $app->bootstrap()->run();
