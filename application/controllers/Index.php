@@ -12,10 +12,7 @@
 class IndexController extends Controller{
 
     public function indexAction(){
-        p( date( 'Y-m-d H:i:s' ) );
-        p(time());
-        p( strtotime( '+1 day' , time()) );
-        p( date( 'Y-m-d' ,strtotime( '+547 day' , time() ) ) );
-        die;
+
+        $this->disableView();
     }
 }

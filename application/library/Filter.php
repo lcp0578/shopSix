@@ -1,25 +1,23 @@
 <?php
 // +--------------------------------------------------------------------------
-// | Description :控制器
+// | Description :过滤
 // +--------------------------------------------------------------------------
 // | Copyright (c) 2014-2015 http://www.sixsir.com All rights reserved.
 // +--------------------------------------------------------------------------
 // | Author: Persi <persi@sixsir.com> <http://www.sixsir.com>
 // +--------------------------------------------------------------------------
-// | Version:0.0.1                Date:2015/6/26
+// | Version:0.0.1                Date:2015/8/26
 // +--------------------------------------------------------------------------
 
-class Controller extends \Yaf\Controller_Abstract{
+Class Filter{
 
-    // 禁止自动渲染
-    protected function disableView(){
+    public static function int( $string ){
 
-        \Yaf\Dispatcher::getInstance()->disableView();
+        return intval( $string );
     }
 
-    protected function ajaxReturn( array $arr ){
+    public static function float( $string ){
 
-        $this->disableView();
-        exit( json_encode( $arr ) );
+        return floatval( $string );
     }
 }
