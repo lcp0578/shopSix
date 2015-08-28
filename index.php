@@ -14,6 +14,8 @@ header( 'content-Type:text/html;charset=utf-8;' );
 define( 'DEBUG' , true );
 
 define( 'APP_PATH' , realpath( __DIR__ ) . '/' );
+// 应用目录
+define( 'APPLICATION_PATH' , realpath( APP_PATH . 'application' ) . '/' );
 
 $app = new Yaf\Application( APP_PATH . 'conf/application.ini' );
 

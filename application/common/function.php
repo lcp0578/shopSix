@@ -18,5 +18,25 @@ function p( $arr ){
 
 function wlog( $arr ){
 
-    return file_put_contents( Log_PATH . '/' . date('Y-m-d') , var_export( $arr , true ) , FILE_APPEND);
+    return file_put_contents( Log_PATH . '/' . date('Y-m-d') , var_export( $arr , true ) . '\\n', FILE_APPEND);
+}
+
+/**
+ * 自定义错误处理函数
+ */
+function sixErrorHandler($errno, $errstr, $errfile, $errline){
+
+    switch ($errno) {
+    case YAF\ERR\NOTFOUND\CONTROLLER:
+    case YAF\ERR\NOTFOUND\MODULE:
+    case YAF\ERR\NOTFOUND\ACTION:
+         exit(MODULE_NAME . CONTROLLER_NAME . ACTION_NAME .'没有找到文件');
+    break;
+
+    default:
+        exit("Unknown error type: [$errno] $errstr<br />\n");
+        break;
+    }
+
+    return true;
 }

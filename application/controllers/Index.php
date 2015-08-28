@@ -13,6 +13,8 @@ class IndexController extends Controller{
 
     public function indexAction(){
 
+        p($dakf);
+        p( date( 'Y-m-d' ,strtotime( '+1 day' , time() ) ) );
         $this->disableView();
     }
 }

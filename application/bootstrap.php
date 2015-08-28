@@ -37,13 +37,11 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract{
     }
 
     /**
-     * [_initDefine 定义常量]
+     * [ _initFramework 初始化]
      * @return [type] [description]
      */
     public function _initFramework( Yaf\Dispatcher $dispatcher ){
 
-        // 应用目录
-        define( 'APPLICATION_PATH' , APP_PATH . 'application/' );
         // 公共目录
         define( 'COMMON_PATH' , APPLICATION_PATH . 'common/' );
         // Log目录
@@ -53,6 +51,25 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract{
 
         \Yaf\Loader::import( COMMON_PATH . 'function.php' );
 
+    }
+
+    /**
+     * [_initSetErrorHandler 设置自定义错误处理函数]
+     * @param  Yaf\Dispatcher $dispatcher [description]
+     * @return [type]                     [description]
+     */
+    public function _initSetErrorHandler( Yaf\Dispatcher $dispatcher ){
+
+        if( isset( $this->_config['application']['dispatcher']['throwException'] ) && $this->_config['application']['dispatcher']['throwException'] == true ){
+
+            $dispatcher->setErrorHandler( 'sixErrorHandler' , E_ALL );
+        }
+    }
+
+    public function _initPlugins( Yaf\Dispatcher $dispatcher ){
+
+        $systemPlugin = new SystemPlugin();
+        $dispatcher->registerPlugin( $systemPlugin );
     }
 
 }
